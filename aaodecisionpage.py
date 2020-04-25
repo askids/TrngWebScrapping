@@ -37,6 +37,15 @@ class AaoDecisionPage(object):
         return f'{self.__root_page}' + href[3:]
 
     def get_file_list(self, page_soup):
+        """
+        [parses input page soup and returns file list]
+
+        Arguments:
+            page_soup {[BeautifulSoup]} -- [html parsed Soup]
+
+        Returns:
+            [list[]] -- [list of files]
+        """        
         resulset = page_soup.find_all("aside", attrs = {"id": "associated-links"})
         temp_soup = soup(str(resulset[0]), "html.parser")
         list_items = temp_soup.find_all('li')
